@@ -1,0 +1,24 @@
+Exercise 4.3
+
+1) What is the HTTP method of the main request to load the page ?
+-GET
+2) What is the status code for the response for this request ?
+-200
+3) How many queries have been made to load the full page ?
+-10
+4) What is the content type of the main answer ?
+-HTML
+5) Are there any requests that failed? If so, which ones and why?
+
+play.google.com/log?hasfast=true&auth=…
+www.google.com/gen_204?atyp=i&ei=…
+www.google.com/gen_204?s=webhp&t=att…
+csp.withgoogle.com/other-hp
+www.google.com/gen_204?atyp=csi&r=1…
+
+five visible background POST requests were blocked:
+They failed because uBlock Origin blocked them, as shown by “Blocked By uBlock Ori…”. These appear to be telemetry, logging, performance-measurement, and CSP-reporting requests, so their failure did not prevent Google’s page from loading.
+
+6) What are the important headers that you can identify in the main query and response ?
+-Html
+
