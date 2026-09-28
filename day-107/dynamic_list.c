@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 typedef struct{
-  float *items;
+  float* items;
   size_t count;
   size_t capacity;
 } Numbers;
@@ -10,7 +10,8 @@ typedef struct{
 int main()
 {
   Numbers numbers;
-  printf("%s",numbers);
+  printf("Struc %s", numbers);
+  printf("\n Taille struc",sizeof(numbers));
 
   Numbers xs ={0}; // => Tous les elems : *items vaut null, count et capacity valent 0.
   // printf("%d",numbers.capacity); => 00.00 
@@ -19,7 +20,9 @@ int main()
       if(xs.capacity == 0){xs.capacity = 256;}
       else{xs.capacity *=2;};
       /*
-       Rappel : sizeof(): Donne le Bytes du type d'une variable.
+       Rappel : 
+        -sizeof(): Donne le Bytes du type d'une variable.
+        -taille d'un pointeur 8 bytes  en OS64.
        Au tour 1 : 
         xs.item = null, ne pointe vers aucun tableau, ce qui revient à :
         xs.item = realloc(null,256*sizeof(float));
@@ -27,7 +30,7 @@ int main()
           Réserve un nouveau bloc mémoire et renvoie l'adresse à xs.items,
           xs.items sert enfin de tab.
       */ 
-      xs.items = realloc(xs.items,xs.capacity*sizeof(*xs.items));
+      xs.items = realloc(xs.items,xs.capacity*sizeof(*xs.items)); // *xs.items == float car déréférencer.
     }
     xs.items[xs.count++] = x;
   }
